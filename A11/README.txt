@@ -67,18 +67,17 @@ STEP-BY-STEP:
 
 2.3. If you have problems with the credential (ex: remote: Permission to acprof0/ACF22Com.git denied), include your credentials:
 * Commands:
-> git config user.name "paulobmsousa"
-> git config credential.username "paulobmsousa"
+> git config user.name "studentName"
+> git config credential.username "studentName"
 
 --- 3. CLONING A REMOTE REPOSITORY ---
 
-
-2.1. The professor also created a Git repository that you can use to clone (basic instructions and the same template to be used. Just clone it, if you want:
+3.1. The professor also created a Git repository that you can use to clone (basic instructions and the same template to be used. Just clone it, if you want:
 
 * Command:
 > git clone https://github.com/acprof0/ACF22Com
 
-2.2. Or you can select in GitHub to clone a repository by Web. So, in the end you can see something like:
+3.2. Or you can select in GitHub to clone a repository by Web. So, in the end you can see something like:
 https://github.com/acstudent0/ACF22Com/import
 
 ---
