@@ -2,12 +2,12 @@
 ************************************************************
 * COMPILERS COURSE - Algonquin College
 * Code version: Fall, 2022
-* Author: Svillen Ranev - Paulo Sousa
+* Author: Quoc Thang Tran
 * Professors: Paulo Sousa
 ************************************************************
  _________________________________
 |                                 |
-| ........ BOA LANGUAGE ......... |
+| ....... KRAIT LANGUAGE ........ |
 |     __    __    __    __        |
 |    /  \  /  \  /  \  /  \       |
 | __/  __\/  __\/  __\/  __\__    |
@@ -80,11 +80,11 @@
  *  Function declarations
  * -------------------------------------------------------------
  */
-boa_void bErrorPrint(boa_char* fmt, ...);
-boa_void displayBuffer(BufferReader* ptr_Buffer);
-boa_long getFileSize(boa_char* fname);
-boa_intg isNumber(const boa_char* ns);
-boa_void startReader(boa_char*, boa_char*, boa_char, boa_intg, boa_intg);
+krait_void bErrorPrint(krait_char* fmt, ...);
+krait_void displayBuffer(BufferReader* ptr_Buffer);
+krait_long getFileSize(krait_char* fname);
+krait_intg isNumber(const krait_char* ns);
+krait_void startReader(krait_char*, krait_char*, krait_char, krait_intg, krait_intg);
 
 /*
 ************************************************************
@@ -96,13 +96,13 @@ boa_void startReader(boa_char*, boa_char*, boa_char, boa_intg, boa_intg);
 ************************************************************
 */
 
-boa_intg mainReader(boa_intg argc, boa_char** argv) {
+krait_intg mainReader(krait_intg argc, krait_char** argv) {
 
 	/* Create source input buffer */
-	boa_char* program = argv[0];
-	boa_char* input = argv[2];
-	boa_char mode = MODE_FIXED;
-	boa_intg size = 0, increment = 0, wrongNumber = 0;
+	krait_char* program = argv[0];
+	krait_char* input = argv[2];
+	krait_char mode = MODE_FIXED;
+	krait_intg size = 0, increment = 0, wrongNumber = 0;
 
 	/* Missing file name or/and mode parameter */
 	if (argc <= 2) {
@@ -154,12 +154,12 @@ boa_intg mainReader(boa_intg argc, boa_char** argv) {
 *	- Increment: buffer increment.
 ************************************************************
 */
-boa_void startReader(boa_char* program, boa_char* input, boa_char mode, boa_intg size, boa_intg increment) {
+krait_void startReader(krait_char* program, krait_char* input, krait_char mode, krait_intg size, krait_intg increment) {
 
 	ReaderPointer bufferp;		/* pointer to Buffer structure */
 	FILE* fileHandler;			/* input file handle */
-	boa_intg loadSize = 0;		/* the size of the file loaded in the buffer */
-	boa_char symbol;			/* symbol read from input file */
+	krait_intg loadSize = 0;		/* the size of the file loaded in the buffer */
+	krait_char symbol;			/* symbol read from input file */
 
 	/* Create buffer */
 	bufferp = readerCreate(size, (char)increment, mode);
@@ -217,12 +217,12 @@ boa_void startReader(boa_char* program, boa_char* input, boa_char mode, boa_intg
 ************************************************************
 */
 
-boa_void bErrorPrint(boa_char* fmt, ...) {
+krait_void bErrorPrint(krait_char* fmt, ...) {
 	/* Initialize variable list */
 	va_list ap;
 	va_start(ap, fmt);
 
-	(boa_void)vfprintf(stderr, fmt, ap);
+	(krait_void)vfprintf(stderr, fmt, ap);
 	va_end(ap);
 
 	/* Move to new line */
@@ -237,7 +237,7 @@ boa_void bErrorPrint(boa_char* fmt, ...) {
 ************************************************************
 */
 
-boa_void displayBuffer(BufferReader* ptr_Buffer) {
+krait_void displayBuffer(BufferReader* ptr_Buffer) {
 	printf("\nPrinting buffer parameters:\n\n");
 	printf("The capacity of the buffer is:  %d\n",
 		readerGetSize(ptr_Buffer));
@@ -267,9 +267,9 @@ boa_void displayBuffer(BufferReader* ptr_Buffer) {
 ************************************************************
 */
 
-boa_long getFileSize(boa_char* fname) {
+krait_long getFileSize(krait_char* fname) {
 	FILE* input;
-	boa_long flength;
+	krait_long flength;
 	input = fopen(fname, "r");
 	if (input == NULL) {
 		bErrorPrint("%s%s", "Cannot open file: ", fname);
@@ -291,8 +291,8 @@ boa_long getFileSize(boa_char* fname) {
 ************************************************************
 */
 
-boa_intg isNumber(const boa_char* ns) {
-	boa_char c; boa_intg i = 0;
+krait_intg isNumber(const krait_char* ns) {
+	krait_char c; krait_intg i = 0;
 	if (ns == NULL) return 0;
 	while ((c = ns[i++]) == 0) {
 		if (!isdigit(c)) return 0;

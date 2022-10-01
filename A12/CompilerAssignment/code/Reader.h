@@ -2,12 +2,12 @@
 ************************************************************
 * COMPILERS COURSE - Algonquin College
 * Code version: Fall, 2022
-* Author: Svillen Ranev - Paulo Sousa
+* Author: Quoc Thang Tran
 * Professors: Paulo Sousa
 ************************************************************
  _________________________________
 |                                 |
-| ........ BOA LANGUAGE ......... |
+| ....... KRAIT LANGUAGE ........ |
 |     __    __    __    __        |
 |    /  \  /  \  /  \  /  \       |
 | __/  __\/  __\/  __\/  __\__    |
@@ -26,7 +26,7 @@
 * Compiler: MS Visual Studio 2022
 * Course: CST 8152 – Compilers, Lab Section: [011, 012, 013]
 * Assignment: A12.
-* Date: Sep 01 2022
+* Date: Sep 30 2022
 * Professor: Paulo Sousa
 * Purpose: This file is the main header for Reader (.h)
 ************************************************************
@@ -46,11 +46,11 @@
 #ifndef READER_H_
 #define READER_H_
 
-/* TIP: Do not change pragmas, unless necessary .......................................*/
-/*#pragma warning(1:4001) *//*to enforce C89 type comments  - to make //comments an warning */
-/*#pragma warning(error:4001)*//* to enforce C89 comments - to make // comments an error */
+ /* TIP: Do not change pragmas, unless necessary .......................................*/
+ /*#pragma warning(1:4001) *//*to enforce C89 type comments  - to make //comments an warning */
+ /*#pragma warning(error:4001)*//* to enforce C89 comments - to make // comments an error */
 
-/* standard header files */
+ /* standard header files */
 #include <stdio.h>  /* standard input/output */
 #include <malloc.h> /* for dynamic memory allocation*/
 #include <limits.h> /* implementation-defined data type ranges and limits */
@@ -76,9 +76,20 @@ enum READER_MODE {
 #define READER_DEFAULT_SIZE			250		/* default initial buffer reader capacity */
 #define READER_DEFAULT_INCREMENT	10		/* default increment factor */
 
-/* Add your bit-masks constant definitions here - Defined for BOA */
-/* BITS                                (7654.3210) */
+/* Add your bit-masks constant definitions here - Defined for KRAIT */
+/*#define BITS                                (7654.3210) */
 #define READER_DEFAULT_FLAG 0x00 	/* (0000.0000)_2 = (000)_10 */
+#define SET_BIT3	0x08
+#define SET_BIT2	0x04
+#define SET_BIT1	0x02
+#define SET_BIT0	0x01
+#define RESET_BIT3	0xF7	
+#define RESET_BIT2	0xFB	
+#define RESET_BIT1	0xFD	
+#define RESET_BIT0	0xFE	
+#define CHECK_BIT0	0x01
+#define CHECK_BIT2	0x04
+#define CHECK_BIT3	0x08
 /* TO_DO: BIT 3: FUL = Full */
 /* TO_DO: BIT 2: EMP: Empty */
 /* TO_DO: BIT 1: REL = Relocation */
@@ -92,46 +103,46 @@ enum READER_MODE {
 
 /* Offset declaration */
 typedef struct position {
-	boa_intg mark;			/* the offset to the mark position (in chars) */
-	boa_intg read;			/* the offset to the get a char position (in chars) */
-	boa_intg wrte;			/* the offset to the add chars (in chars) */
+	krait_intg mark;			/* the offset to the mark position (in chars) */
+	krait_intg read;			/* the offset to the get a char position (in chars) */
+	krait_intg wrte;			/* the offset to the add chars (in chars) */
 } Position;
 
 /* Buffer structure */
 typedef struct bufferReader {
-	boa_char*	content;			/* pointer to the beginning of character array (character buffer) */
-	boa_intg	size;				/* current dynamic memory size (in bytes) allocated to character buffer */
-	boa_intg	increment;			/* character array increment factor */
-	boa_intg	mode;				/* operational mode indicator */
-	boa_byte	flags;				/* contains character array reallocation flag and end-of-buffer flag */
+	krait_char* content;			/* pointer to the beginning of character array (character buffer) */
+	krait_intg	size;				/* current dynamic memory size (in bytes) allocated to character buffer */
+	krait_intg	increment;			/* character array increment factor */
+	krait_intg	mode;				/* operational mode indicator */
+	krait_byte	flags;				/* contains character array reallocation flag and end-of-buffer flag */
 	Position	position;			/* Offset / position field */
-	boa_intg	histogram[NCHAR];	/* Statistics of chars */
+	krait_intg	histogram[NCHAR];	/* Statistics of chars */
 } BufferReader, * ReaderPointer;
 
 /* FUNCTIONS DECLARATION:  .................................. */
 /* General Operations */
-ReaderPointer	readerCreate		(boa_intg, boa_intg, boa_intg);
-ReaderPointer	readerAddChar		(ReaderPointer const, boa_char);
-boa_boln		readerClear		    (ReaderPointer const);
-boa_boln		readerFree		    (ReaderPointer const);
-boa_boln		readerIsFull		(ReaderPointer const);
-boa_boln		readerIsEmpty		(ReaderPointer const);
-boa_boln		readerSetMark		(ReaderPointer const, boa_intg);
-boa_intg		readerPrint		    (ReaderPointer const);
-boa_intg		readerLoad			(ReaderPointer const, FILE* const);
-boa_boln		readerRecover		(ReaderPointer const);
-boa_boln		readerRetract		(ReaderPointer const);
-boa_boln		readerRestore		(ReaderPointer const);
+ReaderPointer	readerCreate(krait_intg, krait_intg, krait_intg);
+ReaderPointer	readerAddChar(ReaderPointer const, krait_char);
+krait_boln		readerClear(ReaderPointer const);
+krait_boln		readerFree(ReaderPointer const);
+krait_boln		readerIsFull(ReaderPointer const);
+krait_boln		readerIsEmpty(ReaderPointer const);
+krait_boln		readerSetMark(ReaderPointer const, krait_intg);
+krait_intg		readerPrint(ReaderPointer const);
+krait_intg		readerLoad(ReaderPointer const, FILE* const);
+krait_boln		readerRecover(ReaderPointer const);
+krait_boln		readerRetract(ReaderPointer const);
+krait_boln		readerRestore(ReaderPointer const);
 /* Getters */
-boa_char		readerGetChar		(ReaderPointer const);
-boa_char*		readerGetContent	(ReaderPointer const, boa_intg);
-boa_intg		readerGetPosRead	(ReaderPointer const);
-boa_intg		readerGetPosWrte	(ReaderPointer const);
-boa_intg		readerGetPosMark	(ReaderPointer const);
-boa_intg		readerGetSize		(ReaderPointer const);
-boa_intg		readerGetInc		(ReaderPointer const);
-boa_intg		readerGetMode		(ReaderPointer const);
-boa_byte		readerGetFlags		(ReaderPointer const);
-boa_intg		readerShowStat		(ReaderPointer const);
+krait_char		readerGetChar(ReaderPointer const);
+krait_char*		readerGetContent(ReaderPointer const, krait_intg);
+krait_intg		readerGetPosRead(ReaderPointer const);
+krait_intg		readerGetPosWrte(ReaderPointer const);
+krait_intg		readerGetPosMark(ReaderPointer const);
+krait_intg		readerGetSize(ReaderPointer const);
+krait_intg		readerGetInc(ReaderPointer const);
+krait_intg		readerGetMode(ReaderPointer const);
+krait_byte		readerGetFlags(ReaderPointer const);
+krait_intg		readerShowStat(ReaderPointer const);
 
 #endif

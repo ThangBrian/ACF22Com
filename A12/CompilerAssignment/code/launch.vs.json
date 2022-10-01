@@ -5,11 +5,11 @@
     {
       "type": "default",
       "project": "CMakeLists.txt",
-      "projectTarget": "BoaCompiler.exe",
-      "name": "BoaCompiler.exe",
+      "projectTarget": "KraitCompiler.exe",
+      "name": "KraitCompiler.exe",
       "args": [
         "R",
-        "README.txt"
+        "Readme.txt",
       ]
     }
   ]

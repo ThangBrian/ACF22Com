@@ -1,0 +1,7 @@
+# KRAIT Example 5:
+int1 = 5
+string1 = "hello"
+float1 = 1.25
+print("Integer: ", type(int1))
+print("String: ", type(string1))
+print("Float: ", type(float1))

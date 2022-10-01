@@ -1,0 +1,7 @@
+# KRAIT Example 3:
+def volume():
+	pi = 3.1415926535897931
+	radian = float(input('Radius of sphere: '))
+	volume = (4/3) * (pi * radian ** 3)
+	print('Volume: ', volume)
+volume()

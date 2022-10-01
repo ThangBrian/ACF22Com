@@ -2,12 +2,12 @@
 ************************************************************
 * COMPILERS COURSE - Algonquin College
 * Code version: Fall, 2022
-* Author: Svillen Ranev - Paulo Sousa
+* Author: Quoc Thang Tran
 * Professors: Paulo Sousa
 ************************************************************
  _________________________________
 |                                 |
-| ........ BOA LANGUAGE ......... |
+| ....... KRAIT LANGUAGE ........ |
 |     __    __    __    __        |
 |    /  \  /  \  /  \  /  \       |
 | __/  __\/  __\/  __\/  __\__    |
@@ -26,7 +26,7 @@
 * Compiler: MS Visual Studio 2022
 * Course: CST 8152 – Compilers, Lab Section: [011, 012, 013]
 * Assignment: A12, A22, A32.
-* Date: Sep 01 2022
+* Date: Sep 30 2022
 * Professor: Paulo Sousa
 * Purpose: This file defines the functions called by main function.
 * Function list: mainReader(), mainScanner(), mainParser().
@@ -46,10 +46,10 @@
  * (see the progression: reader > scanner > parser).
  * ............................................................................
  */
- 
-/* Logical constants - adapt for your language */
-#define BOA_TRUE  1
-#define BOA_FALSE 0
+
+ /* Logical constants - adapt for your language */
+#define KRAIT_TRUE  1
+#define KRAIT_FALSE 0
 
 /*
 ------------------------------------------------------------
@@ -59,16 +59,17 @@ NOTE: Some types may not be directly used by your language,
 ------------------------------------------------------------
 */
 /* TO_DO: Define your typedefs */
-typedef char			boa_char;
-typedef int				boa_intg;
-typedef float			boa_real;
-typedef void			boa_void;
+typedef char			krait_char;
+typedef int				krait_intg;
+typedef float			krait_float;
+typedef void			krait_void;
+typedef char*			krait_str;
 
-typedef unsigned char	boa_boln;
-typedef unsigned char	boa_byte;
+typedef unsigned char	krait_boln;
+typedef unsigned char	krait_byte;
 
-typedef long			boa_long;
-typedef double			boa_doub;
+typedef long			krait_long;
+typedef double			krait_doub;
 
 /*
 ------------------------------------------------------------
@@ -79,9 +80,9 @@ Programs:
 ------------------------------------------------------------
 */
 enum PROGRAMS {
-	PGM_READER	= 'R',
+	PGM_READER = 'R',
 	PGM_SCANNER = 'S',
-	PGM_PARSER	= 'P'
+	PGM_PARSER = 'P'
 };
 
 /*
@@ -90,11 +91,11 @@ Main functions signatures
 (Code will be updated during next assignments)
 ------------------------------------------------------------
 */
-boa_intg mainReader  (boa_intg argc, boa_char** argv);
+krait_intg mainReader(krait_intg argc, krait_char** argv);
 /*
-boa_intg mainScanner (boa_intg argc, boa_char** argv);
-boa_intg mainParser  (boa_intg argc, boa_char** argv);
+krait_intg mainScanner (krait_intg argc, krait_char** argv);
+krait_intg mainParser  (krait_intg argc, krait_char** argv);
 */
-boa_void printLogo();
+krait_void printLogo();
 
 #endif

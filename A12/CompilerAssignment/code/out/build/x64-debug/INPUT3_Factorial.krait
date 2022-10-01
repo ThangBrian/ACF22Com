@@ -1,0 +1,12 @@
+# KRAIT Example 4:
+def factorial():
+	f =1
+	i =1
+	print('Write a number:')
+	n = int(input())
+	while(i<=n):
+    		f = f*i
+    		i = i+1
+	print("Factorial:")
+	print(f)
+factorial()
