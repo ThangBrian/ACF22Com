@@ -70,6 +70,20 @@ build CMakeFiles\KraitCompiler.dir\MainReader.c.obj: C_COMPILER__KraitCompiler_D
   TARGET_COMPILE_PDB = CMakeFiles\KraitCompiler.dir\
   TARGET_PDB = KraitCompiler.pdb
 
+build CMakeFiles\KraitCompiler.dir\Scanner.c.obj: C_COMPILER__KraitCompiler_Debug C$:\Users\tranq\source\repos\QuocThang239_Compilers\ACF22Com\A12\CompilerAssignment\code\Scanner.c || cmake_object_order_depends_target_KraitCompiler
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = CMakeFiles\KraitCompiler.dir
+  OBJECT_FILE_DIR = CMakeFiles\KraitCompiler.dir
+  TARGET_COMPILE_PDB = CMakeFiles\KraitCompiler.dir\
+  TARGET_PDB = KraitCompiler.pdb
+
+build CMakeFiles\KraitCompiler.dir\MainScanner.c.obj: C_COMPILER__KraitCompiler_Debug C$:\Users\tranq\source\repos\QuocThang239_Compilers\ACF22Com\A12\CompilerAssignment\code\MainScanner.c || cmake_object_order_depends_target_KraitCompiler
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = CMakeFiles\KraitCompiler.dir
+  OBJECT_FILE_DIR = CMakeFiles\KraitCompiler.dir
+  TARGET_COMPILE_PDB = CMakeFiles\KraitCompiler.dir\
+  TARGET_PDB = KraitCompiler.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target KraitCompiler
@@ -78,7 +92,7 @@ build CMakeFiles\KraitCompiler.dir\MainReader.c.obj: C_COMPILER__KraitCompiler_D
 #############################################
 # Link the executable KraitCompiler.exe
 
-build KraitCompiler.exe: C_EXECUTABLE_LINKER__KraitCompiler_Debug CMakeFiles\KraitCompiler.dir\Compilers.c.obj CMakeFiles\KraitCompiler.dir\Reader.c.obj CMakeFiles\KraitCompiler.dir\MainReader.c.obj
+build KraitCompiler.exe: C_EXECUTABLE_LINKER__KraitCompiler_Debug CMakeFiles\KraitCompiler.dir\Compilers.c.obj CMakeFiles\KraitCompiler.dir\Reader.c.obj CMakeFiles\KraitCompiler.dir\MainReader.c.obj CMakeFiles\KraitCompiler.dir\Scanner.c.obj CMakeFiles\KraitCompiler.dir\MainScanner.c.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

@@ -9,12 +9,12 @@ def example6():
 		a = a * i/0.5 
 		sum008 = sum008 + a - 1 
 	if text == "":
-		text = 'prog' + 'ram'
+		text = "prog" + "ram"
 	else:
-		text = text + 'ram'
-	print('\* This is a program -:)-<-<-- \*')
+		text = text + "ram"
+	print("\* This is a program -:)-<-<-- \*")
 	print(text)
-	if text!='program' and sum008==8.0 or i>10:
+	if text!="program" and sum008==8.0 or i>10:
 		print(sum008)
 		print()
 example6()

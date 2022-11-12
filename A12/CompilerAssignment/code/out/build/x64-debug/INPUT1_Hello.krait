@@ -1,4 +1,4 @@
 # KRAIT Example 2:
 def main():
-	print('Hello, world!')
+	print("Hello, world!")
 main()
