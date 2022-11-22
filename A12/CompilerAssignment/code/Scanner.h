@@ -242,12 +242,11 @@ Language keywords
 */
 
 /* TO_DO: Define the number of Keywords from the language */
-#define KWT_SIZE 13
+#define KWT_SIZE 12
 
 /* TO_DO: Define the list of keywords */
 static krait_char* keywordTable[KWT_SIZE] = {
 	"if",
-	"then",
 	"else",
 	"while",
 	"do",
