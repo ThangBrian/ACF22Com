@@ -3,10 +3,11 @@ def factorial():
 	f =1
 	i =1
 	print("Write a number: ")
-	n = int(input())
-	while(i<=n):
+	stringN = input()
+	intN = int(stringN)
+	while i<=intN:
     		f = f*i
     		i = i+1
 	print("Factorial:")
 	print(f)
-factorial()
+factorial() 

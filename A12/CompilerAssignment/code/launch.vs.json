@@ -8,8 +8,8 @@
       "projectTarget": "KraitCompiler.exe",
       "name": "KraitCompiler.exe",
       "args": [
-        "S",
-        "INPUT2_Volume.krait"
+        "P",
+        "INPUT4_Datatypes.krait"
       ]
     }
   ]

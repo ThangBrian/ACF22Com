@@ -92,10 +92,9 @@ Main functions signatures
 ------------------------------------------------------------
 */
 krait_intg mainReader(krait_intg argc, krait_char** argv);
-/*
 krait_intg mainScanner (krait_intg argc, krait_char** argv);
 krait_intg mainParser  (krait_intg argc, krait_char** argv);
-*/
+
 krait_void printLogo();
 
 #endif

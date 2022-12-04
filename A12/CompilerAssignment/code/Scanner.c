@@ -64,6 +64,7 @@ TO_DO: Global vars definitions
 /* This buffer is used as a repository for string literals. */
 extern ReaderPointer stringLiteralTable;	/* String literal table */
 krait_intg line;								/* Current line number of the source code */
+LanguageAttributes lang1 = {'\t', 0};
 extern krait_intg errorNumber;				/* Defined in platy_st.c - run-time error number */
 
 extern krait_intg stateType[];
@@ -74,8 +75,6 @@ extern krait_intg transitionTable[][TABLE_COLUMNS];
 /* Local(file) global objects - variables */
 static ReaderPointer lexemeBuffer;			/* Pointer to temporary lexeme buffer */
 static ReaderPointer sourceBuffer;			/* Pointer to input source buffer */
-
-LanguageAttributes lang1 = {'\t', 0};
 
 /*
  ************************************************************
@@ -135,7 +134,7 @@ Token tokenizer(void) {
 		case ' ':
 			break;
 		case '\t':
-			lang1.indentationCurrentPos++;
+			lang1.indentationCurrentPos+=1;
 			break;
 		case '\f':
 		case '\n':
@@ -143,10 +142,6 @@ Token tokenizer(void) {
 			line++;
 			currentToken.code = EOS_T;
 			return currentToken;
-		/* Cases for symbols */
-		//case ';':
-		//	currentToken.code = EOS_T;
-		//	return currentToken;
 		case ':':
 			currentToken.code = SBC_T;
 			return currentToken;
@@ -228,12 +223,6 @@ Token tokenizer(void) {
 				currentToken.attribute.assignmentOperator = OP_LT;
 			}
 			return currentToken;
-		//case '{':
-		//	currentToken.code = LBR_T;
-		//	return currentToken;
-		//case '}':
-		//	currentToken.code = RBR_T;
-		//	return currentToken;
 		/* Comments */
 		case '#':
 			newc = readerGetChar(sourceBuffer);
